@@ -1,3 +1,3 @@
 # my nvim config
 
-#### goto [https://github.com/zengshenggit/nvim-bash] install
+#### [go to install it](https://github.com/zengshenggit/nvim-bash)
