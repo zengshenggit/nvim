@@ -1,0 +1,21 @@
+{
+    "languageserver": {
+        "intelephense": {
+            "command":"intelephense",
+            "args": ["--stdio"],
+            "filetypes": ["php"],
+            "initializationOptions": {
+                "storagePath": "/mnt/e/workspace"
+            }
+	    },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh", "zsh"],
+            "ignoredRootPaths": ["~"]
+        }
+    },
+    "explorer.icon.enableNerdfont":true,
+    "explorer.contentWidth":25,
+    "explorer.floating.width":0
+}
