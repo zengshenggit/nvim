@@ -44,12 +44,12 @@ set relativenumber
 set path=.,/usr/include,/usr/local/include/
 set foldmethod=marker
 set foldlevelstart=99
+set nobackup
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 "let g:mapleader = "\<Space>"
 
 "color 
 colorscheme gruvbox
-"set background=None
 highlight Normal guibg=NONE ctermbg=None
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -86,6 +86,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'gcmt/wildfire.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -127,13 +128,17 @@ endfunction
 let g:coc_snippet_next = '<tab>'
 
 "coc-explorer
-nmap <C-o> :CocCommand explorer --sources=buffer-,file+ --position=left<CR>
+nmap <C-b> :CocCommand explorer --sources=buffer+,file+ --position=left<CR>
 
 "floaterm
 let g:floaterm_keymap_toggle = '<F1>'
 let g:floaterm_keymap_new    = '<F2>'
 let g:floaterm_keymap_prev   = '<F3>'
 let g:floaterm_keymap_next   = '<F4>'
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+
+nnoremap  <silent> <C-g>  :FloatermNew lazygit<CR>
 
 "airline
 let g:airline_powerline_fonts = 1 
@@ -153,4 +158,3 @@ let g:airline_symbols.space = "\ua0"
 
 "to workspace
 cd /mnt/e/workspace
-
