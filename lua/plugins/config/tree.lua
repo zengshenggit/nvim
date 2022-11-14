@@ -34,7 +34,7 @@ require("nvim-tree").setup({
   },
   filters = {
     dotfiles = true,
-    custom = { "node_modules", "vendor" },
+    custom = { "node_modules", "dist", "vendor" },
     exclude = { ".env", "test*" }
   },
 })
