@@ -14,6 +14,18 @@ local packer_bootstrap = ensure_packer()
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup {}
+    end
+  }
+  use {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end
+  }
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
       require('nvim-treesitter.install').update({ with_sync = true })
@@ -114,18 +126,6 @@ require('packer').startup(function(use)
     end
   }
   use {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup {}
-    end
-  }
-  use {
-    'windwp/nvim-ts-autotag',
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end
-  }
-  use {
     'NvChad/nvim-colorizer.lua',
     config = function()
       require 'colorizer'.setup()
@@ -140,6 +140,7 @@ require('packer').startup(function(use)
     ft = { "markdown" },
   }
   use {'leafOfTree/vim-vue-plugin'}
+  use {'leafgarland/typescript-vim'}
   if packer_bootstrap then
     require('packer').sync()
   end
