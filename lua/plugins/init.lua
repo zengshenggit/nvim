@@ -139,6 +139,7 @@ require('packer').startup(function(use)
     end,
     ft = { "markdown" },
   }
+  use {'leafOfTree/vim-vue-plugin'}
   if packer_bootstrap then
     require('packer').sync()
   end
