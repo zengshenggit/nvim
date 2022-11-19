@@ -22,16 +22,6 @@ vim.g.nowritebackup = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd([[
-    autocmd FileType html set shiftwidth=2
-    autocmd FileType vue set shiftwidth=2
-    autocmd FileType typescript set shiftwidth=2
-    autocmd FileType javascript set shiftwidth=2
-    autocmd FileType php set shiftwidth=4
-    set completeopt=menu,menuone,noselect
-    set statusline+=%{get(b:,'gitsigns_status','')}
-]])
-
 define_sign({name = 'DiagnosticSignError', text = ''})
 define_sign({name = 'DiagnosticSignWarn', text = ''})
 define_sign({name = 'DiagnosticSignHint', text = ''})
