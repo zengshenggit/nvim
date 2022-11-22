@@ -73,12 +73,6 @@ require('packer').startup(function(use)
     end
   }
   use {
-    'simrat39/symbols-outline.nvim',
-    config = function()
-      require('plugins.config.symbols-outline')
-    end
-  }
-  use {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('plugins.config.gitsigns')
@@ -113,12 +107,18 @@ require('packer').startup(function(use)
       'saadparwaiz1/cmp_luasnip',
       'rafamadriz/friendly-snippets',
       'onsails/lspkind.nvim',
-      'folke/trouble.nvim',
     },
     config = function()
       require('plugins.config.lspconfig')
     end
   }
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      require('plugins.config.lspsaga')
+    end,
+  })
   use {
     'simrat39/rust-tools.nvim',
     config = function()
@@ -140,7 +140,6 @@ require('packer').startup(function(use)
     ft = { "markdown" },
   }
   use {'leafOfTree/vim-vue-plugin'}
-  use {'leafgarland/typescript-vim'}
   if packer_bootstrap then
     require('packer').sync()
   end

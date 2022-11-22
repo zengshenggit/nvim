@@ -17,11 +17,8 @@ keymap('n', '<C-b>', ':NvimTreeToggle<CR>', options)
 --for plugin markdown-preview
 keymap('n', '<C-m>', '<Plug>MarkdownPreviewToggle', options)
 
---for plugin git-blame
---keymap('n', '<C-g>', ':GitBlameToggle<CR>', options)
-
 --for plugin SymbolsOutline
-keymap('n', '<Leader>t', ':SymbolsOutline<CR>', options)
+--keymap('n', '<Leader>t', ':SymbolsOutline<CR>', options)
 
 --for plugin nvim-telescope
 keymap('n', '<Leader>f', ':lua require("telescope.builtin").find_files({ search_dirs = { get_current_workspace() } })<CR>', options)
@@ -31,7 +28,7 @@ keymap('n', '<Leader>s', ':lua require("telescope.builtin").live_grep({ search_d
 keymap('n', '<Leader>r', ':LspRestart<CR>', options)
 
 --for plugin nvim-trouble
-keymap('n', '<Leader>e', ':TroubleToggle<CR>', options)
+--keymap('n', '<Leader>e', ':TroubleToggle<CR>', options)
 
 --for plugin translator
 keymap('n', '<C-y>', ':TranslateW<CR>', options)
