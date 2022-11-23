@@ -47,7 +47,7 @@ saga.init_lsp_saga({
   -- finder do lsp request timeout
   -- if your project big enough or your server very slow
   -- you may need to increase this value
-  finder_request_timeout = 1500,
+  finder_request_timeout = 3000,
   finder_action_keys = {
     open = {'o', '<CR>'},
     vsplit = 's',
@@ -75,13 +75,13 @@ saga.init_lsp_saga({
   symbol_in_winbar = {
     in_custom = false,
     enable = true,
-    separator = ' ',
+    separator = ' > ',
     show_file = true,
     -- define how to customize filename, eg: %:., %
     -- if not set, use default value `%:t`
     -- more information see `vim.fn.expand` or `expand`
     -- ## only valid after set `show_file = true`
-    file_formatter = "",
+    file_formatter = "%:p., %",
     click_support = false,
   },
   -- show outline
@@ -122,6 +122,9 @@ keymap("n", "rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 
 --Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+
+-- Show line diagnostics
+keymap("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
 
 --Only jump to error
 keymap('n', '<Leader>e', function()
