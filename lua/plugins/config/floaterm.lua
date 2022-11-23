@@ -1,7 +1,7 @@
-vim.g.floaterm_title = 'ﲵ ($1|$2)'
-vim.g.floaterm_wintype = 'split'
-vim.g.floaterm_width = 1.0
-vim.g.floaterm_height = 0.65
+vim.g.floaterm_title = '$1/$2'
+vim.g.floaterm_wintype = 'float'
+vim.g.floaterm_width = 0.8
+vim.g.floaterm_height = 0.75
 vim.g.floaterm_position = 'center'
 vim.g.floaterm_autoclose = 1
 vim.g.floaterm_keymap_toggle = '<F1>'
