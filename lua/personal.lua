@@ -7,7 +7,7 @@ api.nvim_create_user_command('Pd', function()
     pty = true,
     on_stdout = function(job_id, data, event)
       if event == 'stdout' then
-        vim.notify('pnpm dev start...')
+        vim.notify('pnpm dev started')
       end
     end
   })
