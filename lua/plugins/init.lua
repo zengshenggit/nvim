@@ -66,12 +66,14 @@ require('packer').startup(function(use)
       require('plugins.config.floaterm')
     end
   }
+  --[[
   use {
     'romgrk/barbar.nvim',
     config = function()
       require('plugins.config.barbar')
     end
   }
+  --]]
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -140,14 +142,16 @@ require('packer').startup(function(use)
     ft = { "markdown" },
   }
   use {'leafOfTree/vim-vue-plugin'}
-  use {'StanAngeloff/php.vim'}
+  --use {'StanAngeloff/php.vim'}
   --Speed up loading Lua modules in Neovim to improve startup time.
+  --[[
   use {
     'lewis6991/impatient.nvim',
     config = function()
       require('impatient')
     end
   }
+  --]]
   if packer_bootstrap then
     require('packer').sync()
   end
