@@ -141,7 +141,7 @@ require('packer').startup(function(use)
     end,
     ft = { "markdown" },
   }
-  use {'leafOfTree/vim-vue-plugin'}
+  --use {'leafOfTree/vim-vue-plugin'}
   --use {'StanAngeloff/php.vim'}
   --Speed up loading Lua modules in Neovim to improve startup time.
   --[[

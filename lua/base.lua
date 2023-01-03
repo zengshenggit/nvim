@@ -31,6 +31,7 @@ define_sign({name = 'DiagnosticSignHint', text = ''})
 define_sign({name = 'DiagnosticSignInfo', text = ''})
 
 define_options({
+  cursorline = true,
   termguicolors = true,
   number = true,
   smartcase = true,
