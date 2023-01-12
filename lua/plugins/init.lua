@@ -66,14 +66,12 @@ require('packer').startup(function(use)
       require('plugins.config.floaterm')
     end
   }
-  --[[
   use {
     'romgrk/barbar.nvim',
     config = function()
       require('plugins.config.barbar')
     end
   }
-  --]]
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
