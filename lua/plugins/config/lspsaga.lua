@@ -1,35 +1,37 @@
-local keymap = vim.keymap.set
-local saga = require('lspsaga')
-saga.init_lsp_saga({
-  -- Options with default value
-  -- "single" | "double" | "rounded" | "bold" | "plus"
-  border_style = "single",
-  --the range of 0 for fully opaque window (disabled) to 100 for fully
-  --transparent background. Values between 0-30 are typically most useful.
-  saga_winblend = 0,
-  -- when cursor in saga window you config these to move
-  move_in_saga = { prev = '<C-p>',next = '<C-n>'},
-  -- Error, Warn, Info, Hint
-  -- use emoji like
-  -- { "🙀", "😿", "😾", "😺" }
-  -- or
-  -- { "😡", "😥", "😤", "😐" }
-  -- and diagnostic_header can be a function type
-  -- must return a string and when diagnostic_header
-  -- is function type it will have a param `entry`
-  -- entry is a table type has these filed
-  -- { bufnr, code, col, end_col, end_lnum, lnum, message, severity, source }
-  diagnostic_header = { " ", " ", " ", "ﴞ " },
-  -- preview lines above of lsp_finder
-  preview_lines_above = 0,
-  -- preview lines of lsp_finder and definition preview
-  max_preview_lines = 10,
-  -- use emoji lightbulb in default
-  code_action_icon = "",
-  -- if true can press number to execute the codeaction in codeaction window
-  code_action_num_shortcut = true,
+require('lspsaga').setup({
+  ui = {
+    -- currently only round theme
+    theme = 'round',
+    -- border type can be single,double,rounded,solid,shadow.
+    border = 'single',
+    winblend = 0,
+    expand = '',
+    collapse = '',
+    preview = ' ',
+    code_action = '💡',
+    diagnostic = '🐞',
+    incoming = ' ',
+    outgoing = ' ',
+    colors = {
+      --float window normal bakcground color
+      normal_bg = 'None',
+      --title background color
+      title_bg = '#afd700',
+      red = '#e95678',
+      magenta = '#b33076',
+      orange = '#FF8700',
+      yellow = '#f7bb3b',
+      green = '#afd700',
+      cyan = '#36d0e0',
+      blue = '#61afef',
+      purple = '#CBA6F7',
+      white = '#d1d4cf',
+      black = '#1c1c19',
+    },
+    kind = {},
+  },
   -- same as nvim-lightbulb but async
-  code_action_lightbulb = {
+  lightbulb = {
     enable = true,
     enable_in_insert = true,
     cache_code_action = true,
@@ -85,7 +87,7 @@ saga.init_lsp_saga({
     click_support = false,
   },
   -- show outline
-  show_outline = {
+  outline = {
     win_position = 'right',
     --set special filetype win that outline window split.like NvimTree neotree
     -- defx, db_ui
@@ -107,10 +109,9 @@ saga.init_lsp_saga({
   server_filetype_map = {},
 })
 
-
+local keymap = vim.keymap.set
 -- Lsp finder find the symbol definition implement reference
 keymap("n", "gs", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-
 -- Peek Definition
 -- you can edit the definition file in this flaotwindow
 ---also support open/vsplit/etc operation check definition_action_keys
@@ -132,4 +133,4 @@ keymap('n', '<Leader>e', function()
 end, options)
 
 ---- Outline
-keymap("n", "<Leader>t", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+keymap("n", "<Leader>t", "<cmd>Lspsaga outline<CR>",{ silent = true })
