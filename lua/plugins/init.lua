@@ -10,6 +10,19 @@ local ensure_packer = function()
 end
 
 local packer_bootstrap = ensure_packer()
+local filetypes = {
+  'html',
+  'css',
+  'vue',
+  'javascript',
+  'typescript',
+  'rust',
+  'lua',
+  'php',
+  'markdown',
+  'json',
+  'yaml',
+}
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
@@ -17,13 +30,14 @@ require('packer').startup(function(use)
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup {}
-    end
+    end,
   }
   use {
     'windwp/nvim-ts-autotag',
     config = function()
       require('nvim-ts-autotag').setup()
-    end
+    end,
+    ft = filetypes
   }
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -45,20 +59,32 @@ require('packer').startup(function(use)
   use {
     'folke/tokyonight.nvim',
     branch = 'main',
-    requires = { 'nvim-lualine/lualine.nvim' },
     config = function()
       require('plugins.config.tokyonight')
     end
   }
   use {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('lualine').setup {
+        options = {
+          theme = 'tokyonight'
+        }
+      }
+    end,
+    ft = filetypes
+  }
+  use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       require('plugins.config.indent-blankline')
-    end
+    end,
+    ft = filetypes
   }
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { {'nvim-lua/plenary.nvim'} },
+    ft = filetypes
   }
   use {
     'voldikss/vim-floaterm',
@@ -70,7 +96,8 @@ require('packer').startup(function(use)
     'romgrk/barbar.nvim',
     config = function()
       require('plugins.config.barbar')
-    end
+    end,
+    ft = filetypes
   }
   use {
     'lewis6991/gitsigns.nvim',
@@ -110,26 +137,32 @@ require('packer').startup(function(use)
     },
     config = function()
       require('plugins.config.lspconfig')
-    end
+    end,
+    ft = filetypes
   }
-  use({
+  use {
     "glepnir/lspsaga.nvim",
     branch = "main",
     config = function()
       require('plugins.config.lspsaga')
     end,
-  })
+    ft = filetypes,
+    after = 'nvim-lspconfig'
+  }
   use {
     'simrat39/rust-tools.nvim',
     config = function()
       require('plugins.config.rust-tools')
-    end
+    end,
+    ft = 'rust',
+    after = 'nvim-lspconfig'
   }
   use {
     'NvChad/nvim-colorizer.lua',
     config = function()
       require 'colorizer'.setup()
-    end
+    end,
+    ft = filetypes
   }
   use {
     "iamcco/markdown-preview.nvim",
@@ -139,8 +172,14 @@ require('packer').startup(function(use)
     end,
     ft = { "markdown" },
   }
-  use {'leafOfTree/vim-vue-plugin'}
-  use {'StanAngeloff/php.vim'}
+  use {
+    'leafOfTree/vim-vue-plugin',
+    ft = 'vue',
+  }
+  use {
+    'StanAngeloff/php.vim',
+    ft = 'php'
+  }
   if packer_bootstrap then
     require('packer').sync()
   end

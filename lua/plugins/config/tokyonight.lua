@@ -33,9 +33,4 @@ require("tokyonight").setup({
   ---@param colors ColorScheme
   on_highlights = function(highlights, colors) end,
 })
-require('lualine').setup {
-  options = {
-    theme = 'tokyonight'
-  }
-}
 vim.cmd[[colorscheme tokyonight]]
