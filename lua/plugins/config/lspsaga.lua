@@ -68,8 +68,6 @@ require('lspsaga').setup({
     tabe = '<C-c>t',
     quit = 'q',
   },
-  rename_action_quit = '<C-c>',
-  rename_in_select = true,
   -- show symbols in winbar must nightly
   -- in_custom mean use lspsaga api to get symbols
   -- and set it to your custom winbar or some winbar plugins.
@@ -100,13 +98,14 @@ require('lspsaga').setup({
     -- auto refresh when change buffer
     auto_refresh = true,
   },
-  -- custom lsp kind
-  -- usage { Field = 'color code'} or {Field = {your icon, your color code}}
-  custom_kind = {},
-  -- if you don't use nvim-lspconfig you must pass your server name and
-  -- the related filetypes into this table
-  -- like server_filetype_map = { metals = { "sbt", "scala" } }
-  server_filetype_map = {},
+  rename = {
+    quit = '<C-c>',
+    exec = '<CR>',
+    mark = 'x',
+    confirm = '<CR>',
+    in_select = true,
+    whole_project = true,
+  },
 })
 
 local keymap = vim.keymap.set
@@ -129,7 +128,7 @@ keymap("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
 
 --Only jump to error
 keymap('n', '<Leader>e', function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, options)
 
 ---- Outline

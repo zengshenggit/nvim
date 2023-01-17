@@ -139,8 +139,8 @@ require('packer').startup(function(use)
     end,
     ft = { "markdown" },
   }
-  --use {'leafOfTree/vim-vue-plugin'}
-  --use {'StanAngeloff/php.vim'}
+  use {'leafOfTree/vim-vue-plugin'}
+  use {'StanAngeloff/php.vim'}
   if packer_bootstrap then
     require('packer').sync()
   end
