@@ -154,7 +154,6 @@ require('packer').startup(function(use)
       require('plugins.config.rust-tools')
     end,
     ft = 'rust',
-    after = 'nvim-lspconfig'
   }
   use {
     'NvChad/nvim-colorizer.lua',
