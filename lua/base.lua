@@ -55,7 +55,7 @@ define_options({
   clipboard = 'unnamedplus',-- use stystem's clipboard , install 'xclip' first
   encoding = 'utf-8',
   fileformats = 'unix',
-  mouse = 'nv',
+  mouse = '',
   tabstop = 2,
   shiftwidth = 2,
   history = 800,
